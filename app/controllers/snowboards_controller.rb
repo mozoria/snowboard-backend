@@ -1,5 +1,11 @@
+# frozen_string_literal: true
+
 class SnowboardsController < ApplicationController
-  before_action :set_snowboard, only: [:show, :update, :destroy]
+  before_action :set_snowboard, only: %i[show update destroy]
+
+  def editable
+    scope == object.user
+  end
 
   # GET /snowboards
   def index
@@ -39,13 +45,14 @@ class SnowboardsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_snowboard
-      @snowboard = Snowboard.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def snowboard_params
-      params.require(:snowboard).permit(:name, :designer, :color)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_snowboard
+    @snowboard = Snowboard.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def snowboard_params
+    params.require(:snowboard).permit(:name, :designer, :color)
+  end
 end
