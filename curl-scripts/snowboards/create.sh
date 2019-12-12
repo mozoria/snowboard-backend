@@ -1,4 +1,4 @@
-curl "http://localhost:4741/snowboardss" \
+curl "http://localhost:4741/snowboards" \
 --include \
 --request POST \
 --header "Content-Type: application/json" \
