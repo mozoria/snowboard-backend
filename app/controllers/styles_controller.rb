@@ -46,6 +46,6 @@ class StylesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def style_params
-      params.require(:style).permit(:name, :type, :boardsize)
+      params.require(:style).permit(:name, :type, :boardsize, :snowboard_id)
     end
 end
