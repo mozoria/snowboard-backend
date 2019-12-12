@@ -1,4 +1,4 @@
 class StyleSerializer < ActiveModel::Serializer
-  attributes :id, :name, :type, :boardsize
+  attributes :id, :name, :boardsize
   belongs_to :snowboard
 end
