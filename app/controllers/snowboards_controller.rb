@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class SnowboardsController < ApplicationController
+class SnowboardsController < ProtectedController
   before_action :set_snowboard, only: %i[show update destroy]
 
   def editable
@@ -21,7 +21,7 @@ class SnowboardsController < ApplicationController
 
   # POST /snowboards
   def create
-    @snowboard = Snowboard.new(snowboard_params)
+    @snowboard = current_user.snowboard.new(snowboard_params)
 
     if @snowboard.save
       render json: @snowboard, status: :created, location: @snowboard
@@ -53,6 +53,6 @@ class SnowboardsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def snowboard_params
-    params.require(:snowboard).permit(:name, :designer, :color)
+    params.require(:snowboard).permit(:name, :designer, :color, :set_snowboard)
   end
 end
