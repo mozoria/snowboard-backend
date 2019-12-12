@@ -1,11 +1,7 @@
 # frozen_string_literal: true
 
-class SnowboardsController < ProtectedController
+class SnowboardsController < OpenReadController
   before_action :set_snowboard, only: %i[show update destroy]
-
-  def editable
-    scope == object.user
-  end
 
   # GET /snowboards
   def index
