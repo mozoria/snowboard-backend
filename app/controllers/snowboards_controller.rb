@@ -17,7 +17,7 @@ class SnowboardsController < OpenReadController
 
   # POST /snowboards
   def create
-    @snowboard = current_user.snowboard.new(snowboard_params)
+    @snowboard = current_user.snowboards.new(snowboard_params)
 
     if @snowboard.save
       render json: @snowboard, status: :created, location: @snowboard
