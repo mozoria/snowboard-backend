@@ -49,6 +49,6 @@ class SnowboardsController < ProtectedController
 
   # Only allow a trusted parameter "white list" through.
   def snowboard_params
-    params.require(:snowboard).permit(:name, :designer, :color, :set_snowboard)
+    params.require(:snowboard).permit(:name, :designer, :color)
   end
 end
