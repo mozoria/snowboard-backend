@@ -1,5 +1,5 @@
 #!/bin/bash
-EMAIL="" PASSWORD=""
+EMAIL="pe@dro.com" PASSWORD="dro"
 
 curl "http://localhost:4741/sign-in" \
   --include \

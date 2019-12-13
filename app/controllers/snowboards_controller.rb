@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-class SnowboardsController < OpenReadController
+class SnowboardsController < ProtectedController
   before_action :set_snowboard, only: %i[show update destroy]
 
   # GET /snowboards
   def index
-    @snowboards = Snowboard.all
+    @snowboards = current_user.snowboards
 
     render json: @snowboards
   end
