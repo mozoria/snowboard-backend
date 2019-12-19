@@ -44,7 +44,7 @@ class SnowboardsController < ProtectedController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_snowboard
-    @snowboard = Snowboard.find(params[:id])
+    @snowboard = current_user.snowboards.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
